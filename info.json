@@ -1,12 +1,12 @@
 {
   "categories" : [
-    "Utilities"
+    "Information"
   ],
-  "displayName" : "Say Something",
+  "displayName" : "Harvard Dining",
   "name" : "harvard-dining",
-  "description" : "This is an example plugin",
+  "description" : "Displays today's menu for HUDS",
   "examples" : [
-    "say hello world",
-    "say good morning"
+    "HUDS",
+    "huds"
   ]
 }
