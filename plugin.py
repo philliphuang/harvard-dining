@@ -10,9 +10,14 @@ def results(fields, original_query):
 
 	r = requests.get('http://api.cs50.net/food/3/menus', params=params)
 
+	items = []
+
+	for item in r.json():
+		items.append(item['name'])
+
 	return {
 		"title": "HUDS Menu",
-		"html": "<h1 style='font-family: sans-serif; padding: 2em'>{0}</h1>".format(r.json())
+		"html": "<p style='font-family: sans-serif; padding: 2em'>{0}</p>".format(items)
 	}
 
 def run(message):
