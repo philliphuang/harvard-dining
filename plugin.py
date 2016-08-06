@@ -1,12 +1,20 @@
 def results(fields, original_query):
-  message = fields['~message']
-  return {
-    "title": "Say '{0}'".format(message),
-    "run_args": [message],
-	"html": "<h1 style='font-family: sans-serif; padding: 2em'>{0}</h1>".format(message)
-  }
+	
+	import requests
+
+	params = {
+		'key': '06bc0ceef35adbd17e8955ad198209c5',
+		'output': 'json',
+		'sdt': '2011-03-21'
+	}
+
+	r = requests.get('http://api.cs50.net/food/3/menus', params=params)
+
+	return {
+		"title": "HUDS Menu",
+		"html": "<h1 style='font-family: sans-serif; padding: 2em'>{0}</h1>".format(r.json())
+	}
 
 def run(message):
-  import os, pipes
-  os.system('say "{0}"'.format(pipes.quote(message.encode('utf8'))))
-
+	import os
+	os.system('open "http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp"')
