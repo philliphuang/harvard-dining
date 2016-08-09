@@ -1,5 +1,5 @@
 def results(fields, original_query):
-	
+	'''
 	# request data from API
 	import requests
 	params = {
@@ -18,12 +18,13 @@ def results(fields, original_query):
 	for item in items:
 		html = html + "<li>" + item + "</li>"
 	html = html + "</ul>"
-
+	'''
 	return {
 		"title": "HUDS Menu",
-		"html": html
+	#	"html": html
 	}
 
 def run(message):
-	import os
-	os.system("open http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp")
+    import os
+    url = "http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp"
+    os.system('open "{0}"'.format(url))
