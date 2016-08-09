@@ -26,4 +26,4 @@ def results(fields, original_query):
 
 def run(message):
 	import os
-	os.system('open "http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp"')
+	os.system("open http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp")
