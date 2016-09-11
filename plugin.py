@@ -1,3 +1,5 @@
+import json
+
 def results(fields, original_query):
 	'''
 	# request data from API
@@ -19,12 +21,15 @@ def results(fields, original_query):
 		html = html + "<li>" + item + "</li>"
 	html = html + "</ul>"
 	'''
+	url = 'http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp?type=05&meal=1'
 	return {
 		"title": "HUDS Menu",
-	#	"html": html
+        "html": "<script>window.location=%s</script>" % json.dumps(url),
+        "webview_user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53",
+        "webview_links_open_in_browser": True,
+        "run_args": [url]
 	}
 
-def run(message):
+def run(url):
     import os
-    url = "http://www.foodpro.huds.harvard.edu/foodpro/menu_items.asp"
     os.system('open "{0}"'.format(url))
